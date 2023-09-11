@@ -403,7 +403,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             fontStyle: FontStyle.italic),
                       ),
                       Text(
-                        '(2022-2023)',
+                        '(2022-2025)',
                         style: TextStyle(
                             color: AppColors.greyColor,
                             fontSize: width * .01 + 16,
@@ -564,6 +564,329 @@ class _HomeScreenState extends State<HomeScreen> {
                               color: AppColors.mainColor,
                               fontSize: width * .01 + 14,
                               fontWeight: FontWeight.normal,
+                            ),
+                          ),
+                        ],
+                      ),
+                      // Experience
+                      SizedBox(height: height * .02),
+                      Text(
+                        'Experience: ',
+                        style: TextStyle(
+                          color: AppColors.mainColor,
+                          fontSize: width * .01 + 18,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                      SizedBox(height: height * .01),
+                      Text(
+                        'Omega Power Ministries (2021-present)',
+                        style: TextStyle(
+                          color: AppColors.mainColor,
+                          fontSize: width * .01 + 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Container(
+                            width: 8,
+                            height: 8,
+                            margin: const EdgeInsets.only(top: 10),
+                            decoration: BoxDecoration(
+                              color: AppColors.mainColor,
+                              borderRadius: BorderRadius.circular(50),
+                            ),
+                          ),
+                          SizedBox(width: width * .02),
+                          SizedBox(
+                            width: width * .85,
+                            child: Text(
+                              'Developed and maintained various projects, including web applications and mobile apps, for the Church.',
+                              style: TextStyle(
+                                color: AppColors.mainColor,
+                                fontSize: width * .01 + 14,
+                                fontWeight: FontWeight.normal,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: height * .02),
+                      Text(
+                        'Freelance Developer (2020 - Present)',
+                        style: TextStyle(
+                          color: AppColors.mainColor,
+                          fontSize: width * .01 + 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Container(
+                            width: 8,
+                            height: 8,
+                            margin: const EdgeInsets.only(top: 10),
+                            decoration: BoxDecoration(
+                              color: AppColors.mainColor,
+                              borderRadius: BorderRadius.circular(50),
+                            ),
+                          ),
+                          SizedBox(width: width * .02),
+                          SizedBox(
+                            width: width * .85,
+                            child: Text(
+                              'Developed and maintained various personal coding projects, including web applications and mobile apps.',
+                              style: TextStyle(
+                                color: AppColors.mainColor,
+                                fontSize: width * .01 + 14,
+                                fontWeight: FontWeight.normal,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Container(
+                            width: 8,
+                            height: 8,
+                            margin: const EdgeInsets.only(top: 10),
+                            decoration: BoxDecoration(
+                              color: AppColors.mainColor,
+                              borderRadius: BorderRadius.circular(50),
+                            ),
+                          ),
+                          SizedBox(width: width * .02),
+                          SizedBox(
+                            width: width * .85,
+                            child: Text(
+                              'Continuously improved coding skills through self-study and practice.',
+                              style: TextStyle(
+                                color: AppColors.mainColor,
+                                fontSize: width * .01 + 14,
+                                fontWeight: FontWeight.normal,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+
+                      // Projects
+                      SizedBox(height: height * .02),
+                      Text(
+                        'Projects: ',
+                        style: TextStyle(
+                          color: AppColors.mainColor,
+                          fontSize: width * .01 + 18,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            '1. ',
+                            style: TextStyle(
+                              color: AppColors.mainColor,
+                              fontSize: width * .01 + 14,
+                              fontWeight: FontWeight.normal,
+                            ),
+                          ),
+                          SizedBox(width: width * .02),
+                          SizedBox(
+                            width: width * .85,
+                            child: Text(
+                              'Personal Portfolio Website',
+                              style: TextStyle(
+                                color: AppColors.mainColor,
+                                fontSize: width * .01 + 14,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: Column(
+                          children: <Widget>[
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Container(
+                                  width: 8,
+                                  height: 8,
+                                  margin: const EdgeInsets.only(top: 10),
+                                  decoration: BoxDecoration(
+                                    color: AppColors.mainColor,
+                                    borderRadius: BorderRadius.circular(50),
+                                  ),
+                                ),
+                                SizedBox(width: width * .02),
+                                SizedBox(
+                                  width: width * .7,
+                                  child: Text(
+                                    'Developed a my Portfolio website using Flutter and Dart.',
+                                    style: TextStyle(
+                                      color: AppColors.mainColor,
+                                      fontSize: width * .01 + 14,
+                                      fontWeight: FontWeight.normal,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                      SizedBox(height: height * .01),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            '2. ',
+                            style: TextStyle(
+                              color: AppColors.mainColor,
+                              fontSize: width * .01 + 14,
+                              fontWeight: FontWeight.normal,
+                            ),
+                          ),
+                          SizedBox(width: width * .02),
+                          SizedBox(
+                            width: width * .85,
+                            child: Text(
+                              'Youtube Projects & Side Projects',
+                              style: TextStyle(
+                                color: AppColors.mainColor,
+                                fontSize: width * .01 + 14,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: Column(
+                          children: <Widget>[
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Container(
+                                  width: 8,
+                                  height: 8,
+                                  margin: const EdgeInsets.only(top: 10),
+                                  decoration: BoxDecoration(
+                                    color: AppColors.mainColor,
+                                    borderRadius: BorderRadius.circular(50),
+                                  ),
+                                ),
+                                SizedBox(width: width * .02),
+                                SizedBox(
+                                  width: width * .75,
+                                  child: Text(
+                                    'I\'ve built numereous websites and apps for my YouTube Channel and something just to practice my skills. ',
+                                    style: TextStyle(
+                                      color: AppColors.mainColor,
+                                      fontSize: width * .01 + 14,
+                                      fontWeight: FontWeight.normal,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                      // Technical Skills
+                      SizedBox(height: height * .02),
+                      Text(
+                        'Additional Information: ',
+                        style: TextStyle(
+                          color: AppColors.mainColor,
+                          fontSize: width * .01 + 18,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                      SizedBox(height: height * .01),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Container(
+                            margin: const EdgeInsets.only(top: 10),
+                            width: 8,
+                            height: 8,
+                            decoration: BoxDecoration(
+                              color: AppColors.mainColor,
+                              borderRadius: BorderRadius.circular(50),
+                            ),
+                          ),
+                          SizedBox(width: width * .02),
+                          SizedBox(
+                            width: width * .8,
+                            child: Text(
+                              'Strong problem-solving and critical-thinking skills.',
+                              style: TextStyle(
+                                color: AppColors.mainColor,
+                                fontSize: width * .01 + 14,
+                                fontWeight: FontWeight.normal,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Container(
+                            margin: const EdgeInsets.only(top: 10),
+                            width: 8,
+                            height: 8,
+                            decoration: BoxDecoration(
+                              color: AppColors.mainColor,
+                              borderRadius: BorderRadius.circular(50),
+                            ),
+                          ),
+                          SizedBox(width: width * .02),
+                          SizedBox(
+                            width: width * .75,
+                            child: Text(
+                              'Self-motivated and dedicated to continuous learning and improvement.',
+                              style: TextStyle(
+                                color: AppColors.mainColor,
+                                fontSize: width * .01 + 14,
+                                fontWeight: FontWeight.normal,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Container(
+                            margin: const EdgeInsets.only(top: 10),
+                            width: 8,
+                            height: 8,
+                            decoration: BoxDecoration(
+                              color: AppColors.mainColor,
+                              borderRadius: BorderRadius.circular(50),
+                            ),
+                          ),
+                          SizedBox(width: width * .02),
+                          SizedBox(
+                            width: width * .75,
+                            child: Text(
+                              'Excellent communication but lacking teamwork abilities due to I\'ve not worked with a team.',
+                              style: TextStyle(
+                                color: AppColors.mainColor,
+                                fontSize: width * .01 + 14,
+                                fontWeight: FontWeight.normal,
+                              ),
                             ),
                           ),
                         ],
