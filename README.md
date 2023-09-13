@@ -1,7 +1,5 @@
 # HGNx Stage Two - task two
-# Mobile Developers
-
-# Slack Identity Mobile App
+# Mobile Developers - Task Two
 
 ## Project Description
 Welcome to the Mobile CV Application, a user-friendly and feature-rich platform designed to serve as your comprehensive CV. This sleek and intuitive mobile app allows you to effortlessly showcase your personal and professional details while providing the flexibility to view and edit your CV information on the go.
