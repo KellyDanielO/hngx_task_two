@@ -1,4 +1,4 @@
-# HGNx Stage One - task two
+# HGNx Stage Two - task two
 # Mobile Developers
 
 # Slack Identity Mobile App
