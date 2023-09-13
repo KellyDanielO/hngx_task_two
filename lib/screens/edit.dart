@@ -18,6 +18,7 @@ class _EditScreenState extends State<EditScreen> {
   TextEditingController slackName = TextEditingController();
   TextEditingController githubUsername = TextEditingController();
   TextEditingController bio = TextEditingController();
+  TextEditingController email = TextEditingController();
   TextEditingController addr1 = TextEditingController();
   TextEditingController addr2 = TextEditingController();
   TextEditingController phone1 = TextEditingController();
@@ -35,7 +36,9 @@ class _EditScreenState extends State<EditScreen> {
   TextEditingController proj1Des = TextEditingController();
   TextEditingController proj2 = TextEditingController();
   TextEditingController proj2Des = TextEditingController();
-  TextEditingController additionalInfo = TextEditingController();
+  TextEditingController additionalInfo1 = TextEditingController();
+  TextEditingController additionalInfo2 = TextEditingController();
+  TextEditingController additionalInfo3 = TextEditingController();
 
   @override
   void initState() {
@@ -43,7 +46,7 @@ class _EditScreenState extends State<EditScreen> {
     handleData();
   }
 
-  void handleData(){
+  void handleData() {
     fullName.text = userModel.name;
     slackName.text = userModel.slackUsername;
     githubUsername.text = userModel.githubUsername;
@@ -52,6 +55,20 @@ class _EditScreenState extends State<EditScreen> {
     addr2.text = userModel.addresses[1];
     phone1.text = userModel.phones[0];
     phone2.text = userModel.phones[1];
+    email.text = userModel.email;
+    degree.text = userModel.degree;
+    uni.text = userModel.uni;
+    uniPeriod.text = userModel.uniPeriod;
+    exp1.text = userModel.exp1;
+    exp1Task.text = userModel.exp1Task;
+    exp2.text = userModel.exp2;
+    exp2Task.text = userModel.exp2Task;
+    exp2Task2.text = userModel.exp2Task2;
+    proj1.text = userModel.proj1;
+    proj1Des.text = userModel.proj1Des;
+    additionalInfo1.text = userModel.additionalInfo1;
+    additionalInfo2.text = userModel.additionalInfo2;
+    additionalInfo3.text = userModel.additionalInfo3;
     List<String> skillSet = [];
     for (var element in userModel.skills) {
       skillSet.add(element);
@@ -85,6 +102,29 @@ class _EditScreenState extends State<EditScreen> {
             size: width * .01 + 24,
           ),
         ),
+        actions: [
+          ElevatedButton(
+            style: const ButtonStyle(
+              padding: MaterialStatePropertyAll(
+                EdgeInsets.symmetric(
+                  vertical: 5,
+                  horizontal: 10,
+                ),
+              ),
+              backgroundColor: MaterialStatePropertyAll(
+                AppColors.primaryColor,
+              ),
+            ),
+            onPressed: editDetails,
+            child: Text(
+              'save',
+              style: TextStyle(
+                color: AppColors.mainColor,
+                fontSize: width * .01 + 16,
+              ),
+            ),
+          ),
+        ],
       ),
       body: WillPopScope(
         onWillPop: () async {
@@ -172,6 +212,36 @@ class _EditScreenState extends State<EditScreen> {
                       ),
                       TextField(
                         controller: githubUsername,
+                        style: TextStyle(
+                          color: AppColors.mainColor,
+                          fontSize: width * .01 + 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        decoration: const InputDecoration(
+                          filled: true,
+                          fillColor: Color(0xFF272727),
+                          enabledBorder: InputBorder.none,
+                          focusedBorder: InputBorder.none,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(bottom: height * .02),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        'Email *',
+                        style: TextStyle(
+                          color: AppColors.mainColor,
+                          fontSize: width * .01 + 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      TextField(
+                        controller: email,
                         style: TextStyle(
                           color: AppColors.mainColor,
                           fontSize: width * .01 + 16,
@@ -496,7 +566,7 @@ class _EditScreenState extends State<EditScreen> {
                   padding: const EdgeInsets.only(left: 10),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[                      
+                    children: <Widget>[
                       TextField(
                         controller: exp1Task,
                         style: TextStyle(
@@ -551,7 +621,7 @@ class _EditScreenState extends State<EditScreen> {
                   padding: const EdgeInsets.only(left: 10),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[                      
+                    children: <Widget>[
                       TextField(
                         controller: exp2Task,
                         style: TextStyle(
@@ -588,11 +658,148 @@ class _EditScreenState extends State<EditScreen> {
                     ],
                   ),
                 ),
+                Container(
+                  margin: EdgeInsets.only(bottom: height * .02),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        'Additional Info  *',
+                        style: TextStyle(
+                          color: AppColors.mainColor,
+                          fontSize: width * .01 + 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      TextField(
+                        controller: additionalInfo1,
+                        style: TextStyle(
+                          color: AppColors.mainColor,
+                          fontSize: width * .01 + 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        decoration: const InputDecoration(
+                          filled: true,
+                          fillColor: Color(0xFF272727),
+                          enabledBorder: InputBorder.none,
+                          focusedBorder: InputBorder.none,
+                        ),
+                      ),
+                      SizedBox(height: height * .02),
+                      TextField(
+                        controller: additionalInfo2,
+                        style: TextStyle(
+                          color: AppColors.mainColor,
+                          fontSize: width * .01 + 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        decoration: const InputDecoration(
+                          filled: true,
+                          fillColor: Color(0xFF272727),
+                          enabledBorder: InputBorder.none,
+                          focusedBorder: InputBorder.none,
+                        ),
+                      ),
+                      SizedBox(height: height * .02),
+                      TextField(
+                        controller: additionalInfo3,
+                        style: TextStyle(
+                          color: AppColors.mainColor,
+                          fontSize: width * .01 + 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        decoration: const InputDecoration(
+                          filled: true,
+                          fillColor: Color(0xFF272727),
+                          enabledBorder: InputBorder.none,
+                          focusedBorder: InputBorder.none,
+                        ),
+                      ),
+                      SizedBox(height: height * .02),
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
         ),
       ),
     );
+  }
+
+  void editDetails() {
+    if (fullName.text.isEmpty ||
+        slackName.text.isEmpty ||
+        githubUsername.text.isEmpty ||
+        bio.text.isEmpty ||
+        addr1.text.isEmpty ||
+        addr2.text.isEmpty ||
+        phone1.text.isEmpty ||
+        phone2.text.isEmpty ||
+        email.text.isEmpty ||
+        degree.text.isEmpty ||
+        uni.text.isEmpty ||
+        uniPeriod.text.isEmpty ||
+        exp1.text.isEmpty ||
+        exp1Task.text.isEmpty ||
+        exp2.text.isEmpty ||
+        exp2Task.text.isEmpty ||
+        exp2Task2.text.isEmpty ||
+        proj1.text.isEmpty ||
+        proj1Des.text.isEmpty ||
+        additionalInfo1.text.isEmpty ||
+        additionalInfo2.text.isEmpty ||
+        additionalInfo3.text.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          backgroundColor: Colors.redAccent,
+          content: Text(
+            'Sorry, all Fields are required',
+            style: TextStyle(
+              fontSize: MediaQuery.of(context).size.width * .01 + 14,
+              color: AppColors.mainColor,
+            ),
+          ),
+        ),
+      );
+    } else {
+      userModel.name = fullName.text;
+      userModel.slackUsername = slackName.text;
+      userModel.githubUsername = githubUsername.text;
+      userModel.bio = bio.text;
+      userModel.addresses = [addr1.text, addr2.text];
+      userModel.phones = [phone1.text, phone2.text];
+      userModel.email = email.text;
+      userModel.degree = degree.text;
+      userModel.uni = uni.text;
+      userModel.uniPeriod = uniPeriod.text;
+      userModel.exp1 = exp1.text;
+      userModel.exp1Task = exp1Task.text;
+      userModel.exp2 = exp2.text;
+      userModel.exp2Task = exp2Task.text;
+      userModel.exp2Task2 = exp2Task2.text;
+      userModel.proj1 = proj1.text;
+      userModel.proj1Des = proj1Des.text;
+      userModel.additionalInfo1 = additionalInfo1.text;
+      userModel.additionalInfo2 = additionalInfo2.text;
+      userModel.additionalInfo3 = additionalInfo3.text;
+      List<String> skillSet = [];
+      for (var element in skills.text.split(',')) {
+        skillSet.add(element);
+      }
+      userModel.skills = skillSet;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          backgroundColor: AppColors.primaryColor,
+          content: Text(
+            'Editted Successfully',
+            style: TextStyle(
+              fontSize: MediaQuery.of(context).size.width * .01 + 14,
+              color: AppColors.mainColor,
+            ),
+          ),
+        ),
+      );
+    }
   }
 }
