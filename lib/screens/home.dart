@@ -1,8 +1,13 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import '../constants/colors.dart';
+import '../constants/functions.dart';
 import '../controllers/utls_controllers.dart';
+import '../models/user.dart';
+import 'edit.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -17,11 +22,12 @@ class _HomeScreenState extends State<HomeScreen> {
   final UtlControllers _utlControllers = UtlControllers();
   late ScrollController _scrollController;
   StateChanges sliverCollapsed = StateChanges.none;
-//----------
+  late UserModel userModel;
+
   @override
   void initState() {
     super.initState();
-
+    handleData();
     _scrollController = ScrollController()
       ..addListener(() {
         if (_isSliverAppBarExpanded) {
@@ -34,9 +40,20 @@ class _HomeScreenState extends State<HomeScreen> {
           });
         }
       });
+    userModel = UserModel.initial();
   }
 
-//----------
+  void handleData() async {
+    final userModel = UserModel.initial();
+    // print(userModel.skills);
+  }
+
+  Future<UserModel> fetchUserData() async {
+    // Simulating an API call or data retrieval
+    await Future.delayed(const Duration(seconds: 2)); // Simulate loading delay
+    return UserModel.initial();
+  }
+
   bool get _isSliverAppBarExpanded {
     return _scrollController.hasClients &&
         _scrollController.offset > (350 - kToolbarHeight);
@@ -107,7 +124,15 @@ class _HomeScreenState extends State<HomeScreen> {
             actions: sliverCollapsed == StateChanges.sliverCollapsed
                 ? [
                     IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context)
+                            .push(createRouteTrans(const EditScreen()))
+                            .then((value) {
+                          setState(() {
+                            userModel = value;
+                          });
+                        });
+                      },
                       icon: Icon(
                         Icons.more_vert,
                         color: AppColors.mainColor,
@@ -141,7 +166,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                             ),
                             TextSpan(
-                              text: ' Kelly Daniel',
+                              text: " ${userModel.name}",
                               style: TextStyle(
                                 color: AppColors.mainColor,
                                 fontSize: width * .01 + 14,
@@ -165,7 +190,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                             ),
                             TextSpan(
-                              text: ' Kelly Daniel',
+                              text: " ${userModel.slackUsername}",
                               style: TextStyle(
                                 color: AppColors.mainColor,
                                 fontSize: width * .01 + 14,
@@ -189,7 +214,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                             ),
                             TextSpan(
-                              text: ' @KellyDanielO',
+                              text: " @${userModel.githubUsername}",
                               style: TextStyle(
                                 color: AppColors.mainColor,
                                 fontSize: width * .01 + 14,
@@ -211,8 +236,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       SizedBox(height: height * .01),
                       Text(
-                        """Good day, My name is Kelly Daniel. I'm an Enthusiastic and self-motivated programmer student with three years of coding experience in various programming languages, seeking to leverage my skills and knowledge to contribute to a dynamic team and further develop my expertise in software development.\nThough I have no projects I can proudly boast off, due to I kept building and rebuilding but not publishing any of my works.\n\nI was actually just coding for fun then and also trying to learn more, and gain as much knowledge as I can get in order to complete my personal projects!.\nHoping that I'll be able to exercise all the skills I've learnt over the years in Zuri Training Program.
-                        """,
+                        userModel.bio,
                         style: TextStyle(
                           color: AppColors.mainColor,
                           fontSize: width * .01 + 16,
@@ -241,7 +265,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                             ),
                             TextSpan(
-                              text: ' Nigeria, Rivers State, Oyigbo ',
+                              text: userModel.addresses[0],
                               style: TextStyle(
                                 color: AppColors.mainColor,
                                 fontSize: width * .01 + 14,
@@ -265,7 +289,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                             ),
                             TextSpan(
-                              text: ' Benin Republic, Cotonou, Abattoirde',
+                              text: userModel.addresses[1],
                               style: TextStyle(
                                 color: AppColors.mainColor,
                                 fontSize: width * .01 + 14,
@@ -293,7 +317,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               recognizer: DoubleTapGestureRecognizer()
                                 ..onDoubleTap = () {
                                   _utlControllers.copyToClipboard(
-                                      '+2348067081323', context);
+                                      userModel.phones[0], context);
                                 },
                               style: TextStyle(
                                 color: AppColors.mainColor,
@@ -302,11 +326,11 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                             ),
                             TextSpan(
-                              text: ' +234-806-7081-323',
+                              text: userModel.phones[0],
                               recognizer: DoubleTapGestureRecognizer()
                                 ..onDoubleTap = () {
                                   _utlControllers.copyToClipboard(
-                                      '+2348067081323', context);
+                                      userModel.phones[0], context);
                                 },
                               style: TextStyle(
                                 color: AppColors.mainColor,
@@ -327,7 +351,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               recognizer: DoubleTapGestureRecognizer()
                                 ..onDoubleTap = () {
                                   _utlControllers.copyToClipboard(
-                                      '+22950716922', context);
+                                      userModel.phones[1], context);
                                 },
                               style: TextStyle(
                                 color: AppColors.mainColor,
@@ -336,11 +360,11 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                             ),
                             TextSpan(
-                              text: ' +229-50-716-922',
+                              text: userModel.phones[0],
                               recognizer: DoubleTapGestureRecognizer()
                                 ..onDoubleTap = () {
                                   _utlControllers.copyToClipboard(
-                                      '+22950716922', context);
+                                      userModel.phones[1], context);
                                 },
                               style: TextStyle(
                                 color: AppColors.mainColor,
@@ -365,7 +389,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                             ),
                             TextSpan(
-                              text: ' itzkellydaniel@gmail.com',
+                              text: userModel.email,
                               style: TextStyle(
                                 color: AppColors.mainColor,
                                 fontSize: width * .01 + 14,
@@ -421,152 +445,33 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                       SizedBox(height: height * .01),
-                      Row(
-                        children: <Widget>[
-                          Container(
-                            width: 8,
-                            height: 8,
-                            decoration: BoxDecoration(
-                              color: AppColors.mainColor,
-                              borderRadius: BorderRadius.circular(50),
-                            ),
-                          ),
-                          SizedBox(width: width * .02),
-                          Text(
-                            'HTML',
-                            style: TextStyle(
-                              color: AppColors.mainColor,
-                              fontSize: width * .01 + 14,
-                              fontWeight: FontWeight.normal,
-                            ),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: <Widget>[
-                          Container(
-                            width: 8,
-                            height: 8,
-                            decoration: BoxDecoration(
-                              color: AppColors.mainColor,
-                              borderRadius: BorderRadius.circular(50),
-                            ),
-                          ),
-                          SizedBox(width: width * .02),
-                          Text(
-                            'CSS',
-                            style: TextStyle(
-                              color: AppColors.mainColor,
-                              fontSize: width * .01 + 14,
-                              fontWeight: FontWeight.normal,
-                            ),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: <Widget>[
-                          Container(
-                            width: 8,
-                            height: 8,
-                            decoration: BoxDecoration(
-                              color: AppColors.mainColor,
-                              borderRadius: BorderRadius.circular(50),
-                            ),
-                          ),
-                          SizedBox(width: width * .02),
-                          Text(
-                            'PHP',
-                            style: TextStyle(
-                              color: AppColors.mainColor,
-                              fontSize: width * .01 + 14,
-                              fontWeight: FontWeight.normal,
-                            ),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: <Widget>[
-                          Container(
-                            width: 8,
-                            height: 8,
-                            decoration: BoxDecoration(
-                              color: AppColors.mainColor,
-                              borderRadius: BorderRadius.circular(50),
-                            ),
-                          ),
-                          SizedBox(width: width * .02),
-                          Text(
-                            'JavaScript',
-                            style: TextStyle(
-                              color: AppColors.mainColor,
-                              fontSize: width * .01 + 14,
-                              fontWeight: FontWeight.normal,
-                            ),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: <Widget>[
-                          Container(
-                            width: 8,
-                            height: 8,
-                            decoration: BoxDecoration(
-                              color: AppColors.mainColor,
-                              borderRadius: BorderRadius.circular(50),
-                            ),
-                          ),
-                          SizedBox(width: width * .02),
-                          Text(
-                            'Flutter (Dart)',
-                            style: TextStyle(
-                              color: AppColors.mainColor,
-                              fontSize: width * .01 + 14,
-                              fontWeight: FontWeight.normal,
-                            ),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: <Widget>[
-                          Container(
-                            width: 8,
-                            height: 8,
-                            decoration: BoxDecoration(
-                              color: AppColors.mainColor,
-                              borderRadius: BorderRadius.circular(50),
-                            ),
-                          ),
-                          SizedBox(width: width * .02),
-                          Text(
-                            'Python (Django)',
-                            style: TextStyle(
-                              color: AppColors.mainColor,
-                              fontSize: width * .01 + 14,
-                              fontWeight: FontWeight.normal,
-                            ),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: <Widget>[
-                          Container(
-                            width: 8,
-                            height: 8,
-                            decoration: BoxDecoration(
-                              color: AppColors.mainColor,
-                              borderRadius: BorderRadius.circular(50),
-                            ),
-                          ),
-                          SizedBox(width: width * .02),
-                          Text(
-                            'Tailwind CSS',
-                            style: TextStyle(
-                              color: AppColors.mainColor,
-                              fontSize: width * .01 + 14,
-                              fontWeight: FontWeight.normal,
-                            ),
-                          ),
-                        ],
+                      ListView.builder(
+                        shrinkWrap: true,
+                        itemCount: userModel.skills.length,
+                        padding: const EdgeInsets.all(0),
+                        itemBuilder: (BuildContext context, int index) {
+                          return Row(
+                            children: <Widget>[
+                              Container(
+                                width: 8,
+                                height: 8,
+                                decoration: BoxDecoration(
+                                  color: AppColors.mainColor,
+                                  borderRadius: BorderRadius.circular(50),
+                                ),
+                              ),
+                              SizedBox(width: width * .02),
+                              Text(
+                                userModel.skills[index],
+                                style: TextStyle(
+                                  color: AppColors.mainColor,
+                                  fontSize: width * .01 + 14,
+                                  fontWeight: FontWeight.normal,
+                                ),
+                              ),
+                            ],
+                          );
+                        },
                       ),
                       // Experience
                       SizedBox(height: height * .02),
